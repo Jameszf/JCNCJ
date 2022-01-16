@@ -10,4 +10,5 @@ urlpatterns = [
     path('profile/', views.profile),
     path('create/', views.create),
     path('login/', views.login),
+    path('register/', views.confirm),
 ]

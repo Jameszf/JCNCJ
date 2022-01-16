@@ -24,3 +24,14 @@ def play(request):
 
 def login(request):
     return render(request, "login.html")
+
+
+def confirm(request):
+    username = request.POST["name"]
+    password = request.POST["pass"]
+
+    print(f"received username: {username}")
+    print(f"received password: {password}")
+    
+    return render(request, "login.html")
+    
