@@ -18,4 +18,9 @@ def create(request):
 
 
 def play(request):
-    return render(request, "play.html")
+    context = { "song_data": [1, 2, 3, 4, 5, 6] }
+    return render(request, "play.html", context)
+
+
+def login(request):
+    return render(request, "login.html")

@@ -2,9 +2,17 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Accout Creation</title>
+    <title>Play a game</title>
   </head>
   <body>
 	<h1>Play</h1>
+	<div>
+	  <p id="game-text"></p>
+	  <input id="input-field" />
+	</div>
   </body>
+  <script>
+	const game = {% autoescape off %}{{ song_data }}{% endautoescape %}
+	console.log(game)
+  </script>
 </html>
