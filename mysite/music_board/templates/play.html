@@ -351,19 +351,6 @@
         return linesCorrect
     }
 
-    function countScore(userInput) {
-        let correctChars = 0
-        for (let i = 0; i < data[lineNum]["lyric"].length; i++) {
-            if (userInput[i] === data[lineNum]["lyric"][i]) {
-                correctChars++
-            }
-        }
-        if (correctChars === data[lineNum]["lyric"].length) {
-            linesCorrect++
-        } else {
-            linesCorrect = 0
-        }
-    }
 
     startBtn.addEventListener("click", start)
     input.addEventListener("keyup", drawLetters)
