@@ -4,14 +4,18 @@ from django.http import HttpResponse
 
 # Create your views here.
 def index(request):
-    return HttpResponse("Hello from Music Board!")
+    return render(request, "home.html")
 
 
 
 def profile(request):
-    return HttpResponse("Profile")
+    return render(request, "profile.html")
 
 
 
 def create(request):
     return render(request, "create.html")
+
+
+def play(request):
+    return render(request, "play.html")
