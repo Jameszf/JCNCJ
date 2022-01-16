@@ -19,7 +19,7 @@
             cursor: pointer;
             display: inline-flex;
             font-family: "JetBrains Mono", monospace;
-            height: 48px;
+            height: 30px;
             justify-content: center;
             line-height: 1;
             list-style: none;
@@ -35,7 +35,7 @@
             touch-action: manipulation;
             white-space: nowrap;
             will-change: box-shadow, transform;
-            font-size: 18px;
+            font-size: 15px;
         }
 
 
@@ -57,6 +57,20 @@
             box-shadow: #3c4fe0 0 3px 7px inset;
             transform: translateY(2px);
         }
+
+        .game_bar {
+            display: inline-block;
+            background-color: hotpink;
+            font-size: 25px;
+            align-items: center;
+            overflow: hidden;
+            color: white;
+            text-align: center;
+            float: right;
+
+        }
+
+
     </style>
 </head>
 <body>
@@ -189,6 +203,33 @@
         scoreDisplay.innerHTML = letterCounter.toString()
     }
 
+    function displayLine(line) {
+        for (let i = 0; i < line.length; i++) {
+            const el = document.createElement("span")
+            el.innerText = line[i]
+            lyricsDisplay.appendChild(el)
+        }
+    }
+
+    function drawLetters() {
+        const keysEntered = input.value
+        for (let i = 0; i < lyricsDisplay.children.length; i++) {
+            if (i >= keysEntered.length) {
+                lyricsDisplay.children[i].style = ""
+            } else {
+                if (lyricsDisplay.children[i].innerText === keysEntered[i]) {
+                    lyricsDisplay.children[i].style = "color: green;"
+                    letterCounter++
+                } else {
+                    lyricsDisplay.children[i].style = "color: red;"
+                    letterCounter = 0
+                }
+            }
+        }
+        multiplierLetter()
+        updateDisplay()
+    }
+
     function nextLine() {
         checkTimeLimit()
        // countScore(input.value)
@@ -281,6 +322,7 @@
     })
 
     let x = setInterval(nextLine, 1000)
+
 
 </script>
 </html>
