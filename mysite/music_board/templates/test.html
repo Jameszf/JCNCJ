@@ -1,0 +1,124 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+	<title>Hello, world!</title>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width,initial-scale=1" />
+	<meta name="description" content="" />
+    <style>
+         .button-present {   align-items: center;   appearance: none;   background-image: radial-gradient(100% 100% at 100% 0, #5adaff 0, #5468ff 100%);   border: 0;   border-radius: 6px;   box-shadow: rgba(45, 35, 66, .4) 0 2px 4px,rgba(45, 35, 66, .3) 0 7px 13px -3px,rgba(58, 65, 111, .5) 0 -3px 0 inset;   box-sizing: border-box;   color: #fff;   cursor: pointer;   display: inline-flex;   font-family: "JetBrains Mono",monospace;   height: 48px;   justify-content: center;   line-height: 1;   list-style: none;   overflow: hidden;   padding-left: 16px;   padding-right: 16px;   position: relative;   text-align: left;   text-decoration: none;   transition: box-shadow .15s,transform .15s;   user-select: none;   -webkit-user-select: none;   touch-action: manipulation;   white-space: nowrap;   will-change: box-shadow,transform;   font-size: 18px; }  .button-29:focus {   box-shadow: #3c4fe0 0 0 0 1.5px inset, rgba(45, 35, 66, .4) 0 2px 4px, rgba(45, 35, 66, .3) 0 7px 13px -3px, #3c4fe0 0 -3px 0 inset; }  .button-29:hover {   box-shadow: rgba(45, 35, 66, .4) 0 4px 8px, rgba(45, 35, 66, .3) 0 7px 13px -3px, #3c4fe0 0 -3px 0 inset;   transform: translateY(-2px); } .button-29:active{ color: gray} .button-29:active {   box-shadow: #3c4fe0 0 3px 7px inset;   transform: translateY(2px);}
+    </style>
+  </head>
+  <body>
+	<h1>Hello, world!</h1>
+
+    <div id="line-container"></div>
+	<p id="display">Have fun :^]</p>
+    <p id="time"></p>
+    <p id="score">0</p>
+	<input id="user-input" type="text">
+	<button id="start-btn" class="button-present">Start</button>
+  </body>
+  <script>
+	let data = [{"timestamp": 1.14, "lyric": "Lately, I\'ve been, I\'ve been thinking."}, {"timestamp": 3.14, "lyric": "I want you to be happier."}, {"timestamp": 5.64, "lyric": "I want you to be happier."}, {"timestamp": 8.64, "lyric": "When the morning comes."}, {"timestamp": 10.64, "lyric": "When we see what we\'ve become."}, {"timestamp": 12.89, "lyric": "In the cold light of day we\'re a flame in the wind, not the fire that we\'ve begun."}, {"timestamp": 18.14, "lyric": "Every argument, every word we can\'t take back."}, {"timestamp": 22.64, "lyric": "\'Cause with the all that has happened I think that we both know the way that the story ends."}, {"timestamp": 28.39, "lyric": "Then only for a minute."}, {"timestamp": 32.39, "lyric": "I want to change my mind."}, {"timestamp": 34.13, "lyric": "\'Cause this just don\'t feel right to me."}, {"timestamp": 37.9, "lyric": "I want to raise your spirits."}, {"timestamp": 41.89, "lyric": "I want to see you smile but,"}, {"timestamp": 43.64, "lyric": "Know that means I\'ll have to leave."}, {"timestamp": 54.14, "lyric": "Know that means I\'ll have to leave."}, {"timestamp": 57.39, "lyric": "Lately, I\'ve been, I\'ve been thinking."}, {"timestamp": 60.64, "lyric": "I want you to be happier."}, {"timestamp": 63.14, "lyric": "I want you to be happier."}, {"timestamp": 66.39, "lyric": "When the evening falls."}, {"timestamp": 68.14, "lyric": "And I\'m left there with my thoughts."}, {"timestamp": 70.39, "lyric": "And the image of you being with someone else, well, that\'s eating me up inside."}, {"timestamp": 75.64, "lyric": "But we run our course."}, {"timestamp": 77.64, "lyric": "We pretend that we\'re okay."}, {"timestamp": 80.13, "lyric": "Now if we jump together at least we can swim far away from the wreck we made."}, {"timestamp": 86.14, "lyric": "Then only for a minute."}, {"timestamp": 89.64, "lyric": "I want to change my mind."}, {"timestamp": 91.89, "lyric": "\'Cause this just don\'t feel right to me."}, {"timestamp": 96.89, "lyric": "I want to raise your spirits."}, {"timestamp": 99.39, "lyric": "I want to see you smile but,"}, {"timestamp": 102.14, "lyric": "Know that means I\'ll have to leave."}, {"timestamp": 111.39, "lyric": "Know that means I\'ll have to leave."}, {"timestamp": 115.14, "lyric": "Lately, I\'ve been, I\'ve been thinking."}, {"timestamp": 118.64, "lyric": "I want you to be happier."}, {"timestamp": 121.14, "lyric": "I want you to be happier."}, {"timestamp": 124.14, "lyric": "So I\'ll go, I\'ll go!"}, {"timestamp": 128.64, "lyric": "I will go, go, go!"}, {"timestamp": 133.15, "lyric": "So I\'ll go, I\'ll go!"}, {"timestamp": 138.39, "lyric": "I will go, go, go!"}, {"timestamp": 143.64, "lyric": "Lately, I\'ve been, I\'ve been thinking."}, {"timestamp": 147.39, "lyric": "I want you to be happier."}, {"timestamp": 149.64, "lyric": "I want you to be happier."}, {"timestamp": 153.64, "lyric": "Even though I might not like this."}, {"timestamp": 156.89, "lyric": "I think that you\'ll be happier."}, {"timestamp": 159.14, "lyric": "I want you to be happier."}, {"timestamp": 162.89, "lyric": "Then only for a minute only for a minute."}, {"timestamp": 166.64, "lyric": "I want to change my mind."}, {"timestamp": 168.39, "lyric": "\'Cause this just don\'t feel right to me."}, {"timestamp": 172.38, "lyric": "I want to raise your spirits."}, {"timestamp": 176.39, "lyric": "I want to see you smile but,"}, {"timestamp": 178.64, "lyric": "Know that means I\'ll have to leave."}, {"timestamp": 188.4, "lyric": "Know that means I\'ll have to leave."}, {"timestamp": 191.89, "lyric": "Lately, I\'ve been, I\'ve been thinking"}, {"timestamp": 195.14, "lyric": "I want you to be happier."}, {"timestamp": 197.64, "lyric": "I want you to be happier."}, {"timestamp": 201.15, "lyric": "So I\'ll go, I\'ll go!"}, {"timestamp": 205.89, "lyric": "I will go, go, go!"}]
+
+	const input = document.getElementById("user-input")
+    const output = document.getElementById("display")
+    const lineContainer = document.getElementById("line-container")
+    const audioTime = document.getElementById("time")
+    const startBtn = document.getElementById("start-btn")
+
+	let running = false
+    let lineNum = 0
+	let line = data[lineNum]["lyric"]
+	let letterCounter = 0;
+    let audio = new Audio('happier.mp3')
+    let time = 0;
+    let score = 0;
+    let linesCorrect = 0;
+    function updateDisplay() {
+        console.log("Displaying...")
+        console.log(line)
+        output.innerHTML = ""
+        audioTime.innerHTML = audio.currentTime.toString()
+        for (let letter of line) {
+            output.inerrHTML += "<span class='letter'>" + letter + "</span>"
+        }
+
+        input.value = ""
+    }
+
+    function nextLine() {
+        estamp"] - data[lineNum]["tim
+            linesCorrect = 0
+            console.log("Displaying new line")
+            lineNum++;
+            line = data[lineNum]["lyrics"]
+            letterCounter = 0;
+            updateDi
+        else{
+            console.log("Displaying new line")
+            lineNum++;
+            line = data[lineNum]["lyrics"]
+            letterCounter = 0;
+            updateDisplay()}
+    }
+    function checkTimeLimit() {
+        return true
+
+    }if (audio.currentTime - data[lineNum]["timestamp"] >= data[lineNum+1]["tim
+
+	function keyPress(e) {
+		console.log(e)
+        if (running) {
+            if (letterCounter >= line.length) {
+				nextLine()
+                score = score + line.length*multiplier(linesCorrect)
+                linesCorrect++
+
+            }
+
+            if (lineNum > data.length) {
+                prompt("You won!")
+            }
+
+            if (e.key === line[letterCounter]) {
+                console.log("Yay!")
+                letterCounter++
+            }
+        }
+	}
+
+	function start() {
+		running = true
+        letterCounter = 0
+        lineNum = 0
+        audio.play()
+		updateDisplay()
+		console.log("Start")
+
+	}
+/*
+    function multiplier(linesCorrect) {
+        return linesCorrect
+    }
+    function count_score(user_input) {
+     for (let char of data[lineNum]["lyrics"]) {
+        for (i = 0; i < x; i++) {}
+    }
+*/
+	input.addEventListener("keydown", keyPress)
+    startBtn.addEventListener("click", start)
+
+    audio.addEventListener("canplaythrough", function() {
+
+
+        audio.play()
+    }
+
+
+    let x = setInterval(updateDisplay, 1000)
+
+  </script>
+</html>
